@@ -545,3 +545,25 @@
       :cache_multiple_responses:
         :uid_location: body
         :uid_locator: 'email_address":"(.*?)"'
+
+# IAM SSOe OAuth
+- :name: 'IAM SSOe OAuth'
+  :base_uri: <%= "#{URI(Settings.iam_ssoe.oauth_url).host}:#{URI(Settings.iam_ssoe.oauth_url).port}" %>
+  :endpoints:
+    - :method: :post
+      :path: "/oauthe/sps/oauth/oauth20/introspect"
+      :file_path: "iam_ssoe_oauth"
+      :cache_multiple_responses:
+        :uid_location: body
+        :uid_locator:  'token=(.*)&'
+
+  # VA Profile Contact Information
+- :name: 'VA Profile'
+  :base_uri: <%= "#{URI(Settings.vet360.url).host}:#{URI(Settings.vet360.url).port}" %>
+  :endpoints:
+    - :method: :get
+      :path: "/contact-information-hub/cuf/contact-information/v1/*"
+      :file_path: "va_profile/contact_information"
+      :cache_multiple_responses:
+        :uid_location: url
+        :uid_locator:  '\/v1\/(.+)'

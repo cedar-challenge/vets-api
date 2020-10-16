@@ -37,13 +37,20 @@ module IAMSSOeOAuth
         conn.use :breakers
         conn.response :snakecase
         conn.response :json, content_type: /\bjson$/
+        conn.response :betamocks if mock_enabled?
         conn.adapter Faraday.default_adapter
       end
+    end
+
+    def mock_enabled?
+      Settings.iam_ssoe.mock_oauth || false
     end
 
     private
 
     def ssl_options
+      return { verify: false } if mock_enabled?
+      
       if ssl_cert && ssl_key
         {
           client_cert: ssl_cert,

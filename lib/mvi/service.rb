@@ -179,7 +179,9 @@ module MVI
 
     # rubocop:disable Layout/LineLength
     def create_profile_message(user_identity)
+      puts "MVI create_profile_message before ICN"
       return message_icn(user_identity) if user_identity.mhv_icn.present? # from SAML::UserAttributes::MHV::BasicLOA3User
+      puts "MVI create_profile_message after ICN"
       return message_edipi(user_identity) if user_identity.dslogon_edipi.present? && Settings.mvi.edipi_search
       raise Common::Exceptions::ValidationErrors, user_identity unless user_identity.valid?
 

@@ -36,7 +36,7 @@ module Common
         set_attributes(key, cached.response)
         return cached.response
       end
-
+      
       response = yield
       raise NoMethodError, 'The response class being cached must implement #cache?' unless response.respond_to?(:cache?)
 

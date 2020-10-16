@@ -422,6 +422,7 @@ iam_ssoe:
   # oauth (rest) and sts (soap) services are on different hosts
   oauth_url: "https://int.fed.eauth.va.gov:444"
   sts_url: "https://preprod.services.eauth.va.gov:9301"
+  mock_oauth: false
 
 statsd:
   host: ~
