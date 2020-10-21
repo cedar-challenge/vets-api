@@ -53,6 +53,10 @@
                 "birth_date": {
                   "type": "string"
                 },
+                "gender": {
+                  "type": "string",
+                  "enum": ["F", "M"]
+                },
                 "residentialAddress": {
                   "$ref": "address.json"
                 },
