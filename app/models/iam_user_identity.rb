@@ -23,9 +23,11 @@ class IAMUserIdentity < ::UserIdentity
     loa_level = iam_profile[:fediamassur_level].to_i
 
     identity = new(
+      birth_date: iam_profile[:birthdate],
       email: iam_profile[:email],
       expiration_timestamp: iam_profile[:exp],
       first_name: iam_profile[:given_name],
+      gender: iam_profile[:birthdate],
       iam_icn: iam_profile[:fediam_mviicn],
       iam_edipi: iam_profile[:fediam_do_dedipn_id],
       iam_sec_id: iam_profile[:fediamsecid],
