@@ -293,7 +293,7 @@ FactoryBot.define do
     end
 
     factory :ch33_dd_user, traits: [:loa3] do
-      ssn { '796295980' }
+      ssn { '796104437' }
 
       after(:build) do
         stub_mpi(
