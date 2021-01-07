@@ -37,6 +37,8 @@ RSpec.describe BGS::Service do
       VCR.configure do |c|
         c.allow_http_connections_when_no_cassette = true
       end
+      allow(user_object).to receive(:icn).and_return(nil)
+      allow(user_object).to receive(:uuid).and_return('b2fab2b5-6af0-45e1-a9e2-394347af91ef')
       binding.pry; fail
       VCR.use_cassette('bgs/service/update_ch33_dd_eft_fail', record: :once) do
         response = bgs_service.update_ch33_dd_eft(

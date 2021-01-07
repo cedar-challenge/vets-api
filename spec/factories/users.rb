@@ -303,8 +303,8 @@ FactoryBot.define do
           )
         )
 
-        allow(BGS.configuration).to receive(:env).and_return('prepbepbenefits')
-        allow(BGS.configuration).to receive(:client_ip).and_return('10.247.35.119')
+        # allow(BGS.configuration).to receive(:env).and_return('prepbepbenefits')
+        # allow(BGS.configuration).to receive(:client_ip).and_return('10.247.35.119')
       end
     end
 
